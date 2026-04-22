@@ -1,0 +1,45 @@
+body { 
+    background-color: #FAF4D0; 
+    color: #703B3B; 
+    font-family: sans-serif; 
+    padding: 40px; 
+    line-height: 1.6;
+    margin: 0;
+}
+
+nav ul { 
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    gap: 20px; 
+    border-bottom: 2px solid #C14545;
+    padding-bottom: 10px;
+}
+
+nav a { 
+    text-decoration: none; 
+    color: #C14545; 
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: #EA4C4C;
+}
+
+.hero { 
+    margin-top: 60px; 
+}
+
+h1 { 
+    color: #C14545; 
+    font-size: 3rem; 
+    margin: 0;
+}
+
+p { 
+    color: #EA4C4C; 
+    font-size: 1.2rem; 
+    margin-top: 10px;
+}
