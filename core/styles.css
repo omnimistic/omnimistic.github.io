@@ -178,9 +178,73 @@ nav a:hover {
     color: #C14545;
     font-size: 3rem;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .about-content p {
     color: #703B3B;
     font-size: 1.2rem;
+    text-align: center;
+}
+
+#skills {
+    min-height: 100vh;
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #FAF4D0;
+    box-sizing: border-box;
+}
+
+.skills-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.skills-content h2 {
+    color: #C14545;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.skill-category h3 {
+    color: #EA4C4C;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #C14545;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-list li {
+    background-color: transparent;
+    border: 2px solid #703B3B;
+    color: #703B3B;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.skill-list li:hover {
+    background-color: #703B3B;
+    color: #FAF4D0;
+    transform: translateY(-2px);
 }
