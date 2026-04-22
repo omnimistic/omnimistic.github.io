@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body { 
     background-color: #FAF4D0; 
     color: #703B3B; 
@@ -247,4 +251,113 @@ nav a:hover {
     background-color: #703B3B;
     color: #FAF4D0;
     transform: translateY(-2px);
+}
+
+#projects {
+    min-height: 100vh;
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #f2ebd0;
+    box-sizing: border-box;
+}
+
+.projects-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.projects-content h2 {
+    color: #C14545;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.project-info {
+    flex: 1;
+    max-width: 50%;
+}
+
+.project-info h3 {
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+}
+
+.project-info h3 a {
+    color: #703B3B;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-info h3 a:hover {
+    color: #C14545;
+}
+
+.project-tag {
+    color: #9c5c5c;
+    font-size: 0.95rem;
+    margin: 0 0 15px 0;
+}
+
+.interactive-stat {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.interactive-stat:hover {
+    color: #C14545;
+}
+
+.project-desc {
+    color: #703B3B;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.project-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.project-image img {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(112, 59, 59, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-image img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(112, 59, 59, 0.25);
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .project-info {
+        max-width: 100%;
+    }
+    
+    .project-image {
+        justify-content: center;
+    }
 }

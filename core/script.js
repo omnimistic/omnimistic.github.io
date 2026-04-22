@@ -16,3 +16,17 @@ const observer = new IntersectionObserver((entries) => {
 if (hero) {
     observer.observe(hero);
 }
+
+const sparkStat = document.getElementById('spark-stat');
+if (sparkStat) {
+    sparkStat.addEventListener('click', () => {
+        const isExpanded = sparkStat.classList.contains('expanded');
+        if (isExpanded) {
+            sparkStat.textContent = sparkStat.getAttribute('data-short');
+            sparkStat.classList.remove('expanded');
+        } else {
+            sparkStat.textContent = sparkStat.getAttribute('data-full');
+            sparkStat.classList.add('expanded');
+        }
+    });
+}
