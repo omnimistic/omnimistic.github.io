@@ -2,15 +2,39 @@ body {
     background-color: #FAF4D0; 
     color: #703B3B; 
     font-family: sans-serif; 
-    padding: 40px; 
     line-height: 1.6;
     margin: 0;
+    padding: 0;
+}
+
+nav { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(250, 244, 208, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(-20px);
+}
+
+nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 nav ul { 
     list-style: none; 
     padding: 0; 
+    margin: 0;
     display: flex; 
+    justify-content: flex-end;
     gap: 20px; 
     border-bottom: 2px solid #C14545;
     padding-bottom: 10px;
@@ -29,9 +53,12 @@ nav a:hover {
 }
 
 .hero {
-    margin-top: 15vh; 
+    min-height: 100vh;
     display: flex;
     justify-content: center; 
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 .hero-content {
@@ -82,6 +109,12 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #social img {
     width: 1.5rem;
     height: 1.5rem;
@@ -89,7 +122,7 @@ nav a:hover {
     filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(1072%) hue-rotate(314deg) brightness(97%) contrast(89%);
 }
 
-#social a:hover img {
+#social .social-icon-link:hover img {
     transform: scale(1.15);
 }
 
@@ -103,7 +136,7 @@ nav a:hover {
     color: #703B3B;
     text-decoration: none;
     font-weight: bold;
-    padding: 6px 14px;
+    padding: 4px 14px;
     border-radius: 6px;
     font-size: 0.9rem;
     transition: all 0.2s ease;
@@ -126,4 +159,28 @@ nav a:hover {
 
 .resume-btn:hover .resume-icon {
     background-color: #FAF4D0; 
+}
+
+#about {
+    min-height: 100vh;
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #f2ebd0;
+    box-sizing: border-box;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content h2 {
+    color: #C14545;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #703B3B;
+    font-size: 1.2rem;
 }

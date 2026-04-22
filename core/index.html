@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Prasurjya's portfolio.">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="#about">About Me</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -17,7 +18,7 @@
         </ul>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="hero">
         <div class="hero-content">
             <span class="greeting">Yo, I'm</span>
             <h1>Prasurjya</h1>
@@ -25,10 +26,10 @@
             <p class="subtitle">Game developer, system developer, creative coder</p>
             
             <div id="social">
-                <a target="_blank" href="https://github.com/omnimistic"><img alt="github profile" src="./assets/icons/github.svg"/></a>
-                <a target="_blank" href="https://omnimistic.itch.io"><img alt="itch.io profile" src="./assets/icons/itchdotio.svg"/></a>
-                <a target="_blank" href="https://x.com/omnimistic"><img alt="x profile" src="./assets/icons/x.svg"/></a>
-                <a target="_blank" href="https://www.youtube.com/@Omnimistic"><img alt="youtube channel" src="./assets/icons/youtube.svg"/></a>
+                <a target="_blank" href="https://github.com/omnimistic" class="social-icon-link"><img alt="github profile" src="./assets/icons/github.svg"/></a>
+                <a target="_blank" href="https://omnimistic.itch.io" class="social-icon-link"><img alt="itch.io profile" src="./assets/icons/itchdotio.svg"/></a>
+                <a target="_blank" href="https://x.com/omnimistic" class="social-icon-link"><img alt="x profile" src="./assets/icons/x.svg"/></a>
+                <a target="_blank" href="https://www.youtube.com/@Omnimistic" class="social-icon-link"><img alt="youtube channel" src="./assets/icons/youtube.svg"/></a>
                 
                 <a target="_blank" href="Prasurjya_Resume.pdf" class="resume-btn">
                     <span>Resume</span>
@@ -38,5 +39,11 @@
         </div>
     </div>
 
+    <section id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a full-stack developer who specializes in game development. I love learning about computers, and programming is my favorite hobby. I'm also interested in philosophy.</p>
+        </div>
+    </section>
 </body>
 </html>
