@@ -1,14 +1,25 @@
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; 
 }
 
 body { 
-    background-color: #FAF4D0; 
     color: #703B3B; 
     font-family: sans-serif; 
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: transparent; 
+}
+
+#fractal-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 nav { 
@@ -171,7 +182,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f2ebd0;
+    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -198,7 +209,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FAF4D0;
+    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -260,7 +271,7 @@ nav a:hover {
     padding: 100px 40px;
     display: flex;
     justify-content: center;
-    background-color: #f2ebd0;
+    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -393,7 +404,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FAF4D0;
+    background-color: transparent;
     box-sizing: border-box;
 }
 
