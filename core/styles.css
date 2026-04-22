@@ -28,18 +28,102 @@ nav a:hover {
     color: #EA4C4C;
 }
 
-.hero { 
-    margin-top: 60px; 
+.hero {
+    margin-top: 15vh; 
+    display: flex;
+    justify-content: center; 
 }
 
-h1 { 
-    color: #C14545; 
-    font-size: 3rem; 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 5px;
+}
+
+.greeting {
+    color: #703B3B;
+    font-size: 1.2rem;
+    font-weight: bold;
     margin: 0;
 }
 
-p { 
-    color: #EA4C4C; 
+.hero-content h1 { 
+    color: #C14545; 
+    font-size: 5.5rem; 
+    letter-spacing: -2px;
+    line-height: 1; 
+    margin: 0;
+}
+
+.location {
+    color: #EA4C4C;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.subtitle { 
+    color: #703B3B; 
     font-size: 1.2rem; 
-    margin-top: 10px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
+}
+
+#social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+#social img {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.2s ease;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(1072%) hue-rotate(314deg) brightness(97%) contrast(89%);
+}
+
+#social a:hover img {
+    transform: scale(1.15);
+}
+
+.resume-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 2px solid #703B3B;
+    color: #703B3B;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.resume-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #703B3B; 
+    -webkit-mask: url('./assets/icons/file-user.svg') no-repeat center / contain;
+    mask: url('./assets/icons/file-user.svg') no-repeat center / contain;
+    transition: background-color 0.2s ease;
+}
+
+.resume-btn:hover {
+    background-color: #703B3B;
+    color: #FAF4D0;
+    transform: translateY(-2px);
+}
+
+.resume-btn:hover .resume-icon {
+    background-color: #FAF4D0; 
 }
