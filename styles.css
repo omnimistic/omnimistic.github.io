@@ -1,25 +1,56 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; 
+    background-color: #FAF4D0; 
 }
 
 body { 
+    background-color: transparent; 
     color: #703B3B; 
     font-family: sans-serif; 
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: transparent; 
 }
 
-#fractal-canvas {
+#fractal-canvas, #brownian-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: 1;
     pointer-events: none;
+    transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.hero, section, footer {
+    position: relative;
+    z-index: 2;
+}
+
+#fractal-canvas {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+}
+
+#brownian-canvas {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.8);
+}
+
+body.show-fluid #fractal-canvas {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.2); 
+}
+
+body.show-fluid #brownian-canvas {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1); 
 }
 
 nav { 
@@ -28,14 +59,18 @@ nav {
     left: 0;
     width: 100%;
     background-color: rgba(250, 244, 208, 0.95);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
     z-index: 1000;
     padding: 20px 40px;
     box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.6s ease;
     transform: translateY(-20px);
+}
+
+body.show-fluid nav {
+    background-color: rgba(250, 244, 208, 0.1); 
 }
 
 nav.visible {
@@ -53,6 +88,11 @@ nav ul {
     gap: 20px; 
     border-bottom: 2px solid #C14545;
     padding-bottom: 10px;
+    transition: border-color 0.6s ease;
+}
+
+body.show-fluid nav ul {
+    border-bottom: 2px solid #FAF4D0;
 }
 
 nav a { 
@@ -61,10 +101,19 @@ nav a {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
+    transition: color 0.6s ease;
 }
 
 nav a:hover {
     color: #EA4C4C;
+}
+
+body.show-fluid nav a {
+    color: #FAF4D0;
+}
+
+body.show-fluid nav a:hover {
+    color: #FFFFFF;
 }
 
 .hero {
@@ -182,7 +231,6 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -209,7 +257,6 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -271,7 +318,6 @@ nav a:hover {
     padding: 100px 40px;
     display: flex;
     justify-content: center;
-    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -285,6 +331,12 @@ nav a:hover {
     font-size: 3rem;
     margin-bottom: 60px;
     text-align: center;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .projects-content h2 {
+    color: #FAF4D0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
 .project-card {
@@ -308,17 +360,32 @@ nav a:hover {
 .project-info h3 a {
     color: #703B3B;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
 }
 
 .project-info h3 a:hover {
     color: #C14545;
 }
 
+body.show-fluid .project-info h3 a {
+    color: #FAF4D0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+body.show-fluid .project-info h3 a:hover {
+    color: #FFFFFF;
+}
+
 .project-tag {
     color: #9c5c5c;
     font-size: 0.95rem;
     margin: 0 0 15px 0;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .project-tag {
+    color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 .interactive-stat {
@@ -326,11 +393,20 @@ nav a:hover {
     text-decoration: underline;
     text-decoration-style: dotted;
     text-underline-offset: 4px;
-    transition: color 0.2s ease;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
 }
 
 .interactive-stat:hover {
     color: #C14545;
+}
+
+body.show-fluid .interactive-stat {
+    color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+body.show-fluid .interactive-stat:hover {
+    color: #FAF4D0;
 }
 
 .project-desc {
@@ -338,6 +414,12 @@ nav a:hover {
     font-size: 1.1rem;
     line-height: 1.6;
     margin: 0;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .project-desc {
+    color: #FAF4D0;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .project-image {
@@ -346,16 +428,20 @@ nav a:hover {
     justify-content: flex-end;
 }
 
-.project-image img {
+/* Updated this section to apply styles to both img and video */
+.project-image img,
+.project-image video {
     max-width: 100%;
     width: 400px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(112, 59, 59, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: block; /* Removes any weird spacing beneath videos */
 }
 
-.project-image img:hover {
+.project-image img:hover,
+.project-image video:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(112, 59, 59, 0.25);
 }
@@ -365,12 +451,23 @@ nav a:hover {
     margin-top: 80px;
     padding-top: 40px;
     border-top: 2px solid rgba(193, 69, 69, 0.3);
+    transition: border-color 0.6s ease;
+}
+
+body.show-fluid .see-more {
+    border-top: 2px solid rgba(250, 244, 208, 0.4);
 }
 
 .see-more h3 {
     color: #C14545;
     font-size: 1.8rem;
     margin-bottom: 20px;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .see-more h3 {
+    color: #FAF4D0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .see-more-links {
@@ -389,7 +486,7 @@ nav a:hover {
     padding: 8px 24px;
     border-radius: 6px;
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: all 0.6s ease;
 }
 
 .see-more-btn:hover {
@@ -398,13 +495,25 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+body.show-fluid .see-more-btn {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+body.show-fluid .see-more-btn:hover {
+    background-color: #FFFFFF;
+    color: #703B3B;
+    text-shadow: none;
+}
+
 #contact {
     min-height: 80vh;
     padding: 100px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -417,12 +526,24 @@ nav a:hover {
     color: #C14545;
     font-size: 3rem;
     margin-bottom: 20px;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .contact-content h2 {
+    color: #FAF4D0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .contact-content p {
     color: #703B3B;
     font-size: 1.2rem;
     margin-bottom: 40px;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .contact-content p {
+    color: #FAF4D0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .contact-btn {
@@ -435,7 +556,7 @@ nav a:hover {
     padding: 12px 30px;
     border-radius: 6px;
     font-size: 1.1rem;
-    transition: all 0.2s ease;
+    transition: all 0.6s ease;
 }
 
 .contact-btn:hover {
@@ -444,11 +565,29 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+body.show-fluid .contact-btn {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+body.show-fluid .contact-btn:hover {
+    background-color: #FFFFFF;
+    color: #703B3B;
+    text-shadow: none;
+}
+
 footer {
     background-color: #703B3B;
     color: #FAF4D0;
     text-align: center;
     padding: 15px 20px;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+body.show-fluid footer {
+    background-color: transparent;
 }
 
 .footer-content p {
@@ -462,6 +601,12 @@ footer {
     font-weight: normal;
     margin-top: 2px;
     color: #E0A9A9; 
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+body.show-fluid .footer-content .copyright {
+    color: #FAF4D0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 768px) {
