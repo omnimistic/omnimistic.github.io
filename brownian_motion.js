@@ -49,8 +49,11 @@
             }
 
             void main() {
-                vec2 st = gl_FragCoord.xy / u_resolution.xy;
-                st.x *= u_resolution.x / u_resolution.y;
+                vec2 st = gl_FragCoord.xy / min(u_resolution.x, u_resolution.y);
+                
+                if (u_resolution.y > u_resolution.x) {
+                    st *= 2.5; 
+                }
 
                 vec2 q = vec2(0.0);
                 q.x = fbm(st + 0.05 * u_time);
