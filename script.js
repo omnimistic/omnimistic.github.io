@@ -46,7 +46,7 @@ const fluidObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.3 
+    threshold: 0.05 
 });
 
 if (projectsSection) {
