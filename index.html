@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Omnimistic</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prasurjya's portfolio.">
+    <link rel="icon" type="image/png" href="./src/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="script.js" defer></script>
+    <script src="Julia_set.js" defer></script>
+    <script src="brownian_motion.js" defer></script>
+</head>
+<body>
+    <canvas id="fractal-canvas"></canvas>
+    <canvas id="brownian-canvas"></canvas>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="hero">
+        <div class="hero-content">
+            <div class="name-block">
+                <span class="greeting">Yo, I'm</span>
+                <h1>Prasurjya</h1>
+                <p class="location">Based in Assam, India</p>
+            </div>
+            <p class="subtitle">Game developer, system developer, creative coder</p>
+            
+            <div id="social">
+                <a target="_blank" href="https://github.com/omnimistic" class="social-icon-link"><img alt="github profile" src="./src/icons/github.svg"/></a>
+                <a target="_blank" href="https://omnimistic.itch.io" class="social-icon-link"><img alt="itch.io profile" src="./src/icons/itchdotio.svg"/></a>
+                <a target="_blank" href="https://x.com/omnimistic" class="social-icon-link"><img alt="x profile" src="./src/icons/x.svg"/></a>
+                <a target="_blank" href="https://www.youtube.com/@Omnimistic" class="social-icon-link"><img alt="youtube channel" src="./src/icons/youtube.svg"/></a>
+                
+                <a href="blogs.html" class="resume-btn">
+                    <span>Read Blogs</span>
+                </a>
+
+                <a target="_blank" href="./src/Prasurjya_Resume.pdf" class="resume-btn">
+                    <span>Resume</span>
+                    <span class="resume-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a 17-year-old full-stack developer specializing in game development, systems programming, and creative coding. I started making games in Godot during lockdown when I was 10 years old, and over the last 7 years, I've built a technical foundation that covers everything from low-level engine architecture to high-level gameplay mechanics. I also tinker around with machine learning, IoT, and CAD. I just code for fun. I love making games and seeing my abnormal ideas come to life. Outside of programming, I often think about the complexities of life, stuff like existentialism, absurdism, and human nature.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="skills-content">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>GDScript</li>
+                        <li>Python</li>
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>GLSL</li>
+                        <li>Lua</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools/Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Godot</li>
+                        <li>Blender</li>
+                        <li>GIMP</li>
+                        <li>Krita</li>
+                        <li>Libresprite</li>
+                        <li>FL Studio</li>
+                        <li>Audacity</li>
+                        <li>Bosca Ceoil Blue</li>
+                        <li>Neovim</li>
+                        <li>Kdenlive</li>
+                        <li>OpenGL</li>
+                        <li>Pygame</li>
+                        <li>SFML</li>
+                        <li>PyTorch</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Instruments</h3>
+                    <ul class="skill-list">
+                        <li>Ukulele</li>
+                        <li>Bansuri</li>
+                        <li>Tabla</li>
+                        <li>Guitar</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="projects-content">
+            <h2>Projects</h2>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://github.com/omnimistic/pain/" target="_blank">pain</a></h3>
+                    <p class="project-tag">C++ Package Manager</p>
+                    <p class="project-desc">A project manager and external library manager for C++. Like pip, but built specifically for C++ workflows.</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://github.com/omnimistic/pain/" target="_blank">
+                        <img src="./src/projects/pain.gif" alt="pain project thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://github.com/omnimistic/algo-lang" target="_blank">algolang</a></h3>
+                    <p class="project-tag">Interpreter / Language</p>
+                    <p class="project-desc">A simple programming language and interpreter designed specifically for the algorithms taught in schools and CS classes.</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://github.com/omnimistic/algo-lang" target="_blank">
+                        <img src="./src/projects/algolang.gif" alt="algolang project thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://omnimistic.itch.io/one-last-spark" target="_blank">One Last Spark</a></h3>
+                    <p class="project-tag interactive-stat" id="spark-stat" data-short="Ranked #3 in Visuals & Art (Click for more)" data-full="Visuals & Art #3 | Audio #4 | Theme #4 | Gameplay #7">Ranked #3 in Visuals & Art (Click for more)</p>
+                    <p class="project-desc">A short third-person parkour adventure game built for the Godot India Community Jam 4.</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://omnimistic.itch.io/one-last-spark" target="_blank">
+                        <img src="./src/projects/spark.gif" alt="One Last Spark thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://omnimistic.itch.io/zarx-hiragana" target="_blank">Hiragana-X</a></h3>
+                    <p class="project-tag">Educational Game</p>
+                    <p class="project-desc">An interactive game designed to help you learn and revise Hiragana characters as you play.</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://omnimistic.itch.io/zarx-hiragana" target="_blank">
+                        <img src="./src/projects/hiragana-x.gif" alt="Hiragana-X thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://github.com/omnimistic/gitmage" target="_blank">Gitmage</a></h3>
+                    <p class="project-tag">Auto-Battler Game</p>
+                    <p class="project-desc">A mystical auto-battler where GitHub users become stickman mages. Stats (HP and ATK) are derived from real-time GitHub API data.</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://github.com/omnimistic/gitmage" target="_blank">
+                        <img src="./src/projects/gitmage.gif" alt="Gitmage thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://github.com/omnimistic/DeepMindEdge" target="_blank">DeepMindEdge</a></h3>
+                    <p class="project-tag">AI Model</p>
+                    <p class="project-desc">An AI model I trained to output a 0 or 1 in a semi-random interval.</p>
+                </div>
+                <div class="project-image">
+                    <a href="#" target="_blank">
+                        <img src="./src/projects/warn.webp" alt="nsfw warning thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="https://github.com/omnimistic/Blendah" target="_blank">Blendah</a></h3>
+                    <p class="project-tag">3D modelling software</p>
+                    <p class="project-desc">A simple 3D modelling app in the terminal, built using C++</p>
+                </div>
+                <div class="project-image">
+                    <a href="https://github.com/omnimistic/Blendah" target="_blank">
+                        <video autoplay loop muted playsinline title="Blendah thumbnail">
+                            <source src="./src/projects/blendah.mp4" type="video/mp4">
+                        </video>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="#" target="_blank">Wire++</a></h3>
+                    <p class="project-tag">Cellular Automaton Simulator</p>
+                    <p class="project-desc">A simulator for Wireworld—a Turing-complete cellular automaton used to simulate electronic logic elements. It uses four cell states (empty, electron head, electron tail, and conductor) to build complex computational gates.</p>
+                </div>
+                <div class="project-image">
+                    <a href="#" target="_blank">
+                        <img src="./src/projects/wirepp.gif" alt="wire++ thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22 style=%22background:%23703B3B;border-radius:8px;%22%3E%3C/svg%3E'"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3><a href="#" target="_blank">Grass M</a></h3>
+                    <p class="project-tag">First-Person Action Adventure</p>
+                    <p class="project-desc">A short first-person adventure set in a post-dystopian industrial world where humanity has retreated underground. Grass is a strictly forbidden taboo, and those who desire to touch it are labeled unstable and imprisoned.</p>
+                </div>
+                <div class="project-image">
+                    <a href="#" target="_blank">
+                        <video autoplay loop muted playsinline title="Grass M thumbnail">
+                            <source src="./src/projects/grassm.mp4" type="video/mp4">
+                        </video>
+                    </a>
+                </div>
+            </div>
+
+            <div class="see-more">
+                <h3>Want to see more?</h3>
+                <div class="see-more-links">
+                    <a href="https://github.com/omnimistic" target="_blank" class="see-more-btn">GitHub</a>
+                    <a href="https://omnimistic.itch.io" target="_blank" class="see-more-btn">Itch.io</a>
+                    <a href="blogs.html" class="see-more-btn">Blog</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Contact</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me!</p>
+            <a href="mailto:omnimistix@gmail.com" class="contact-btn">Say Hello!</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>Designed & Built by Prasurjya</p>
+            <p class="copyright">&copy; 2026 Omnimistic. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
