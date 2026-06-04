@@ -52,3 +52,15 @@ const fluidObserver = new IntersectionObserver((entries) => {
 if (projectsSection) {
     fluidObserver.observe(projectsSection);
 }
+
+const btn = document.getElementById('webring-btn');
+const left = btn.querySelector('.webring-half.left');
+const right = btn.querySelector('.webring-half.right');
+
+left.addEventListener('mouseenter', () => btn.classList.add('hover-left'));
+left.addEventListener('mouseleave', () => btn.classList.remove('hover-left'));
+right.addEventListener('mouseenter', () => btn.classList.add('hover-right'));
+right.addEventListener('mouseleave', () => btn.classList.remove('hover-right'));
+
+left.addEventListener('click', () => window.location.href = 'https://ring.seggs.lol/redirect?from=omnimistic&dir=prev');
+right.addEventListener('click', () => window.location.href = 'https://ring.seggs.lol/redirect?from=omnimistic&dir=next');

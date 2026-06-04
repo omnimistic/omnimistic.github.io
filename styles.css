@@ -561,38 +561,6 @@ body.show-fluid .contact-btn:hover {
     text-shadow: none;
 }
 
-/* ==================== FOOTER ==================== */
-footer {
-    flex-shrink: 0;
-    background-color: #703B3B;
-    color: #FAF4D0;
-    text-align: center;
-    padding: 15px 20px;
-    transition: background-color 0.6s ease, color 0.6s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-body.show-fluid footer { background-color: transparent; }
-
-.footer-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.footer-content .copyright {
-    font-size: 0.75rem;
-    font-weight: normal;
-    margin-top: 2px;
-    color: #E0A9A9;
-    transition: color 0.6s ease, text-shadow 0.6s ease;
-}
-
-body.show-fluid .footer-content .copyright {
-    color: #FAF4D0;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
 
 /* ==================== BLOG PAGE ==================== */
 body.blog-page {
@@ -1005,3 +973,54 @@ body.show-fluid .parsed-markdown blockquote {
         font-size: 1.1rem;
     }
 }
+
+.webring {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.webring-btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 88px; /* standard 88x31 button size */
+}
+
+.webring-btn img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: invert(24%) sepia(23%) saturate(1072%) hue-rotate(314deg) brightness(97%) contrast(89%);
+}
+
+.webring-btn::before,
+.webring-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.webring-btn::before { left: 0; border-radius: 2px 0 0 2px; }
+.webring-btn::after  { right: 0; border-radius: 0 2px 2px 0; }
+
+.webring-btn.hover-left::before  { opacity: 1; }
+.webring-btn.hover-right::after  { opacity: 1; }
+
+.webring-half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: all;
+}
+
+.webring-half.left  { left: 0; }
+.webring-half.right { right: 0; }
