@@ -1024,3 +1024,30 @@ body.show-fluid .parsed-markdown blockquote {
 
 .webring-half.left  { left: 0; }
 .webring-half.right { right: 0; }
+
+.parsed-markdown .katex-display {
+    margin: 2.2rem 0;
+    padding: 1.6rem 2rem;
+    background: rgba(30, 30, 46, 0.65);
+    border-radius: 10px;
+    /* border-left: 5px solid rgba(122, 162, 247, 0.8); */
+    overflow-x: auto;
+    backdrop-filter: blur(8px);
+}
+
+.parsed-markdown .katex {
+    font-size: 1.09em;
+    line-height: 1.65;
+}
+
+.parsed-markdown .math-inline .katex {
+    background: rgba(42, 42, 58, 0.7);
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+    font-size: 1.05em;
+}
+
+/* Optional: Soften the box even more */
+.parsed-markdown .katex-display .katex {
+    padding: 0.3rem 0;
+}

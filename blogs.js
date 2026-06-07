@@ -1,6 +1,5 @@
-
 const blogFiles = [
-    'post1.json'
+    'post1.md',
 ];
 
 let isDescending = true;
@@ -22,6 +21,49 @@ function getExcerpt(markdown, maxLength = 140) {
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
 }
 
+/**
+ * Parse Markdown file with Frontmatter
+ */
+function parseMarkdownFile(markdownText) {
+    const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/;
+    const match = markdownText.match(frontmatterRegex);
+    
+    let metadata = {};
+    let content = markdownText;
+
+    if (match) {
+        const frontmatter = match[1];
+        content = markdownText.slice(match[0].length).trim();
+        
+        const lines = frontmatter.split('\n');
+        lines.forEach(line => {
+            if (!line.trim()) return;
+            const colonIndex = line.indexOf(':');
+            if (colonIndex === -1) return;
+            
+            const key = line.slice(0, colonIndex).trim();
+            let value = line.slice(colonIndex + 1).trim();
+            
+            if ((value.startsWith('"') && value.endsWith('"')) || 
+                (value.startsWith("'") && value.endsWith("'"))) {
+                value = value.slice(1, -1);
+            }
+            
+            metadata[key] = value;
+        });
+    } else {
+        content = markdownText.trim();
+    }
+
+    return {
+        title: metadata.title || "Untitled Post",
+        date: metadata.date || "",
+        subtitle: metadata.subtitle || "",
+        thumbnail: metadata.thumbnail || "",
+        tag: metadata.tag || "",
+        content: content
+    };
+}
 
 // Async Drive Mounting Engine
 async function renderBlogs() {
@@ -37,11 +79,14 @@ async function renderBlogs() {
             try {
                 const res = await fetch(`./src/blogs/${file}`);
                 if (res.ok) {
-                    blogCache[file] = await res.json();
+                    const text = await res.text();
+                    blogCache[file] = parseMarkdownFile(text);
                 } else {
-                    console.error(`Failed to map address for: ${file}`);
+                    console.error(`Failed to load: ${file}`);
                 }
-            } catch(e) { console.error(`Data link transmission failure:`, e); }
+            } catch(e) {
+                console.error(`Error loading ${file}:`, e);
+            }
         }
     }
 
@@ -56,12 +101,10 @@ async function renderBlogs() {
     sortedFiles.forEach(file => {
         const data = blogCache[file];
         
-        // Build the left-side thumbnail if it exists
         const thumbnailHtml = data.thumbnail 
             ? `<div class="blog-post-image"><img src="${escapeHtml(data.thumbnail)}" alt="thumbnail"></div>` 
             : '';
 
-        // Build the [tag] block if it exists
         const tagHtml = data.tag 
             ? `<span class="blog-tag-square">[${escapeHtml(data.tag)}]</span>` 
             : '';
@@ -85,6 +128,7 @@ function openBlog(file) {
     if (!data) return;
 
     const htmlContent = marked.parse(data.content || "");
+
     const singleView = document.getElementById("single-view");
     
     singleView.innerHTML = `
@@ -95,38 +139,40 @@ function openBlog(file) {
         <div class="parsed-markdown">${htmlContent}</div>
     `;
 
-    // Drop global execution metrics out to trigger native Brownian background visibility
     document.body.classList.add("show-fluid");
 
-    // Total visibility separation: Hide list, header, AND navbar
     document.getElementById("list-view").style.display = "none";
     document.getElementById("main-header").style.display = "none";
     document.getElementById("navbar").style.display = "none";
     
-    // Mount text visual structures and fire standard positioning interpolation
     singleView.style.display = "block";
     singleView.classList.remove("slide-up-active");
-    void singleView.offsetWidth; // Force rendering pipeline layout recalculation break
+    void singleView.offsetWidth;
     singleView.classList.add("slide-up-active");
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Render LaTeX with KaTeX
+    if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(singleView, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+        });
+    }
 }
 
 function backToBlogs() {
-    // Clear global state flags to return background parameters back to Julia Fractal plane
     document.body.classList.remove("show-fluid");
 
-    // Teardown single view structure completely
     const singleView = document.getElementById("single-view");
     singleView.style.display = "none";
     singleView.classList.remove("slide-up-active");
     
-    // Remount central feed systems AND navbar
     document.getElementById("list-view").style.display = "block";
     document.getElementById("main-header").style.display = "block";
-    
-    // Setting display to empty string clears the inline "none" style, 
-    // allowing your CSS file to take over styling the navbar again safely.
     document.getElementById("navbar").style.display = ""; 
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -138,17 +184,15 @@ function toggleSort() {
     renderBlogs();
 }
 
-// Initialize System Engine Listener Attachments
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     const sortBtn = document.getElementById('sort-btn');
-    if(sortBtn) sortBtn.addEventListener('click', toggleSort);
+    if (sortBtn) sortBtn.addEventListener('click', toggleSort);
+    
     renderBlogs();
     
-    // Trigger the navbar drop-down animation on load
     const navbar = document.getElementById('navbar');
     if (navbar) {
-        setTimeout(() => {
-            navbar.classList.add('visible');
-        }, 100);
+        setTimeout(() => navbar.classList.add('visible'), 100);
     }
 });
